@@ -1,0 +1,56 @@
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+/*
+ *  长度为10的一维数组
+ */
+		Scanner sc = new Scanner(System.in);
+		int num[] = new int[10];
+		for(int i=0;i<10;i++)
+		{
+			num[i] = i;
+		}
+		while(true)
+		{
+			System.out.println("输入想要连接的节点");
+			int a1 = sc.nextInt();
+			int a2 = sc.nextInt();
+			Surge(a1, a2, num);
+			for(int i=0;i<10;i++)
+			{
+				System.out.print(i+"所属于"+num[i]+" ");
+			}
+			System.out.println();
+		}
+		
+		
+		
+
+	}
+	public static int Find(int i,int[] num)
+	{
+		if(i==num[i])
+		{
+			System.out.println("该节点属于"+num[i]);
+			return i;
+		}
+		else {
+			return Find(num[i],num);
+		}
+//		路径优化
+	}
+	public static void Surge(int i,int j,int[] num)
+	{
+		int max = Math.max(i, j);
+		int min = Math.min(j, i);
+//		大的节点向小的节点？？
+		num[max] = Find(min, num);
+//		但是没有改变数组值:改变了数组的值
+		
+	}
+
+}
