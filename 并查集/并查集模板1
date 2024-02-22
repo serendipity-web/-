@@ -1,0 +1,55 @@
+package 全排列;
+
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+
+public class 全排列1 {
+//  num={1,2,3,4} 输出长度为n的全排列
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] num = {1,1,2};
+//		输出num中长度为2的组合
+		backcurge(num, 3, 0, 0);
+		for(int i=0;i<res.size();i++)
+		{
+			for(int element:res.get(i))
+			{
+				System.out.print(element+" ");
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	static List<List<Integer>> res = new ArrayList<List<Integer>>();
+	static LinkedList<Integer> path = new LinkedList<Integer>();
+	/*
+	 *  @n :表示组合中元素个数
+	 *  @startIndex:表示开始的元素索引
+	 *  @k:表示目前的层数
+	 *  problem:出现死循环
+	 */
+	public static void backcurge(int[] num,int n,int startIndex,int k)
+	{
+//		终止条件: n = k
+		if(n==k)
+		{
+			res.add(new LinkedList<>(path));
+			return  ;
+			
+		}
+		for(int i=startIndex;i<num.length;i++)
+		{
+			path.add(num[i]);
+			startIndex++;
+			k++;
+			backcurge(num, n, startIndex, k);
+			k--;
+			path.removeLast();
+		}
+	}
+
+}
