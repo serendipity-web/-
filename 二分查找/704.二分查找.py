@@ -4,7 +4,7 @@ Day:2024-08-11
 
 
 class Solution:
-    def search(self, nums: List[int], target: int) -> int:
+    def search(self, nums: list[int], target: int) -> int:
         left, right = 0, len(nums) - 1
         while left <= right:
             mid = (right - left) // 2 + left
