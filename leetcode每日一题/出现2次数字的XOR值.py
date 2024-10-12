@@ -36,7 +36,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    nums1 = [1, 2, 2,1]
+    nums1 = [1,3, 2, 2,1]
 
     # 实例化 Solution
     solution = Solution()
